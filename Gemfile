@@ -9,9 +9,10 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'devise', '3.2.2'
 # gem 'eventbrite-client'
+gem 'pg'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.8'
+  gem 'pg'
   gem 'rspec-rails'
 end
 
@@ -35,6 +36,6 @@ group :doc do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
+  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
