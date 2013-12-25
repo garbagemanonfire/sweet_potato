@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.2'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 2'
 gem 'bootswatch-rails'
 gem 'faker', '1.1.2'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+# gem 'will_paginate'
+# gem 'bootstrap-will_paginate'
 gem 'devise', '3.2.2'
 # gem 'eventbrite-client'
 gem 'pg'
@@ -24,7 +24,7 @@ group :test do
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
-gem 'sass-rails', '4.0.1'
+gem 'sass-rails'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.0.4'
