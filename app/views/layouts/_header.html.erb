@@ -4,19 +4,17 @@
       <%= link_to "Sweet Potato", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li> <% if user_signed_in? %>
-              <%= link_to 'Engage', "#", :class => 'navbar-link' %> 
+          <% if user_signed_in? %>
+              <li><%= link_to "Reflect", '#' %></li> 
             <% else %>
-              <%= link_to "Connect", new_user_registration_path, :class => 'navbar-link'  %>
-            <% end %></li>
-          <li><%= link_to "Organize", '#', :class => 'navbar_link' %></li>
-          <li><%= link_to "Reflect", '#' %></li>
+              <li><%= link_to "Connect", new_user_registration_path, :class => 'navbar-link'  %></li>
+            <% end %>
+          <li><%= link_to 'Engage', "#", :class => 'navbar-link' %></li>
+          <li><%= link_to "Organize", organize_path, :class => 'navbar_link' %></li>
             <% if user_signed_in? %>
           <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
           <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
             <% else %>
-            <li> <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
             <li> <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
             <% end %></li>
         </ul>

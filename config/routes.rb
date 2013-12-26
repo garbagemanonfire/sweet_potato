@@ -1,7 +1,9 @@
 SpApp::Application.routes.draw do
+  get "events/new"
   devise_for :users
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
+  match '/organize',  to: 'events#new',         via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
