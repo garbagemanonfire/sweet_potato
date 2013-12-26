@@ -11,16 +11,20 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
+      <div class="usernotice">
+        <% if notice %>
+          <p class="alert alert-notice"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-error"><%= alert %></p>
+        <% end %>
+      </div>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
-    </div>
-    <div>
-      <% if notice %>
-        <p class="alert alert-notice"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-error"><%= alert %></p>
-      <% end %>
-    </div>
+      <%= debug(params) if Rails.env.development? %>
+    </div
   </body>
 </html>
