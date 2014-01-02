@@ -20,7 +20,7 @@ class EventsController < ApplicationController
        flash[:success] = "Your retreat has been added!"
       redirect_to @event
     else
-      render 'new'
+      render 'new' #should be edit?
     end
   end
 

@@ -11,14 +11,14 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
-      <div class="usernotice">
+<!--       <div class="usernotice">
         <% if notice %>
           <p class="alert alert-notice"><%= notice %></p>
         <% end %>
         <% if alert %>
           <p class="alert alert-error"><%= alert %></p>
         <% end %>
-      </div>
+      </div> -->
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>

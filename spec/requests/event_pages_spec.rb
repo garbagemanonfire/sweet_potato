@@ -4,7 +4,7 @@ describe "Event pages" do
 
   subject { page }
 
-  describe "retreat page" do
+  describe "Retreat page" do
     let(:event) { FactoryGirl.create(:event) }
     before { visit event_path(event) }
 
@@ -31,7 +31,7 @@ describe "Event pages" do
       before do
         fill_in "Title",        with: "Example Event"
         fill_in "event_address_1",    with: "11 Park Ave."
-        fill_in "E",            with: "6789376"
+        fill_in "E",            with: "67489376"
         fill_in "Organizer",    with: "23"
       end
 
