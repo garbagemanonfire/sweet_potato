@@ -1,15 +1,15 @@
-<% provide(:title, 'All Retreats') %>
+<% provide(:title, 'Engage') %>
 <h1>All Retreats</h1>
 
 <table class="table table-striped table-hover">
     <tr>
-        <th>Title &nbsp; &nbsp; &nbsp;</th>
-        <th>State</th>
-        <th>City</th>
-        <th>Starts</th>
-        <th>Ends</th>
-        <th>Restrictions</th>
-        <th>Capacity</th>
+        <th><%= sortable "title"%></th>
+        <th><%= sortable "state"%></th>
+        <th><%= sortable "address_2", "City"%></th>
+        <th><%= sortable "start_date", "Starts"%></th>
+        <th><%= sortable "end_date", "Ends"%></th>
+        <th><%= sortable "restrictions"%></th>
+        <th><%= sortable "capacity"%></th>
         <th>Engage</th>
   </tr>
   <% @events.each do |event| %>

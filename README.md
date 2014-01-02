@@ -2,4 +2,13 @@
 
 Without Eventbrite API
 
-Deployed to Heroku: http://stark-basin-9596.herokuapp.com 
+Deployed to Heroku: http://sweet-potato.herokuapp.com 
+
+
+Resources Used to create this app:
+
+
+
+http://railscasts.com/episodes/228-sortable-table-columns
+
+http://ruby.railstutorial.org/
