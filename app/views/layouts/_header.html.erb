@@ -9,7 +9,7 @@
             <% else %>
               <li><%= link_to "Connect", new_user_registration_path, :class => 'navbar-link'  %></li>
             <% end %>
-          <li><%= link_to 'Engage', "#", :class => 'navbar-link' %></li>
+          <li><%= link_to 'Engage', events_path, :class => 'navbar-link' %></li>
           <li><%= link_to "Organize", organize_path, :class => 'navbar_link' %></li>
             <% if user_signed_in? %>
           <li id="fat-menu" class="dropdown">
