@@ -1,0 +1,28 @@
+<% provide(:title, 'All Retreats') %>
+<h1>All Retreats</h1>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Title &nbsp; &nbsp; &nbsp;</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Starts</th>
+        <th>Ends</th>
+        <th>Restrictions</th>
+        <th>Capacity</th>
+        <th>Engage</th>
+  </tr>
+  <% @events.each do |event| %>
+  </tr>
+      <td><%= link_to event.title, event %></td>
+      <td><%= event.state %></td>
+      <td><%= event.address_2 %></td>
+      <td><%= event.start_date %></td>
+      <td><%= event.end_date %></td>
+      <td><%= event.restrictions %></td>
+      <td><%= event.capacity %></td>
+      <td><%= link_to "Click Here", event %></td>
+  </tr>
+  <% end %>
+</table>
+

@@ -1,3 +1,31 @@
 <% provide(:title, @event.title) %>
 <h1><%= @event.title %><h1> 
 <h2><%= @event.address_1 %></h2>
+
+<div class="row-fluid">
+  <div class="span6">
+    <h4><%= @event.title %></h4>
+    <h4><%= @event.address_1 %></h4>
+    <h4><%= @event.address_2 %></h4>
+    <h4><%= @event.state %></h4>
+    <h4><%= @event.zip_code %></h4>
+    <h4><%= @event.e_id %></h4>
+    <h4><%= @event.organizer_id %></h4>
+    <h4><%= @event.venue %></h4>
+    <h4><%= @event.restrictions %></h4>
+    <h4><%= @event.tradition %></h4>
+  </div>
+  <div class="span6">
+    <h4><%= @event.description%></h4>
+    <h4><%= @event.preparations%></h4>
+    <h4><%= @event.instructions %></h4>
+    <h4><%= @event.code_conduct %></h4>
+    <h4><%= @event.comments %></h4>
+    <h4><%= @event.capacity %></h4>
+    <h4><%= @event.start_date %></h4>
+    <h4><%= @event.end_date %></h4>
+  </div>
+</div>
+
+
+
