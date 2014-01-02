@@ -19,7 +19,7 @@ describe "Event pages" do
     it { should have_content('Organize') }
     it { should have_title(full_title('Organize')) }
 
-    let(:submit) { "Create my Retreat" }
+    let(:submit) { "Create A Retreat" }
 
     describe "with invalid information" do
       it "should not create a retreat" do
@@ -30,9 +30,9 @@ describe "Event pages" do
     describe "with valid information" do
       before do
         fill_in "Title",        with: "Example Event"
-        fill_in "Address 1",    with: "2000 main street"
+        fill_in "event_address_1",    with: "11 Park Ave."
         fill_in "E",            with: "6789376"
-        fill_in "Organizer",    with: "orgboy"
+        fill_in "Organizer",    with: "23"
       end
 
       it "should create a event" do
