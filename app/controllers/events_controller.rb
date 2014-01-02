@@ -1,5 +1,7 @@
-class EventsController < ApplicationController
-  
+class EventsController < ApplicationController 
+  before_filter :set_return_path, only: [:new, :create]
+  before_filter :authenticate_user!, only: [:new, :create]
+
   helper_method :sort_column, :sort_direction
 
   def new
