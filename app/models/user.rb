@@ -10,14 +10,14 @@ class User < ActiveRecord::Base
 
 
   def engaging?(event)
-    self.retreatregs.find_by(event_id: event.id)
+    retreatregs.find_by(event_id: event.id)
   end
 
   def engage!(event)
-    self.retreatregs.create!(event_id: event.id)
+    retreatregs.create!(event_id: event.id)
   end
 
   def disengage!(event)
-    self.retreatregs.find_by(event_id: event.id).destroy!
+    retreatregs.find_by(event_id: event.id).destroy!
   end
 end

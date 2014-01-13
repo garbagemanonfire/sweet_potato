@@ -2,15 +2,15 @@ class RetreatregsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  def create
-    @user = User.find(params[:retreatregs][:event_id])
+  def update
+    @event = Event.find(params[:id])
     current_user.engage!(@event)
-    redirect_to @user
+    redirect_to @event
   end
 
   def destroy
-    @user = Retreatregs.find(params[:id]).engaged
-    current_user.disengage!(@user)
-    redirect_to @user
+    @event = Event.find(params[:id])
+    current_user.disengage!(@event)
+    redirect_to @event
   end
 end
