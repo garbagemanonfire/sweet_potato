@@ -1,7 +1,18 @@
 SpApp::Application.routes.draw do
-
+  
   devise_for :users
-  resources :events
+  # resources :users, :only => [:show]
+  resources :users do
+    member do
+      get :engaging
+    end
+  end
+  resources :events do
+    member do
+      get :users
+    end
+  end
+  resources :retreatregs, only: [:create, :destroy]
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/organize',  to: 'events#new',         via: 'get'

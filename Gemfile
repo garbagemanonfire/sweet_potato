@@ -14,6 +14,7 @@ gem 'pg'
 group :development, :test do
   gem 'pg'
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-its'
 end
 
 group :test do

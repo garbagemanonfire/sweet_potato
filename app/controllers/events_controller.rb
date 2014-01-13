@@ -26,6 +26,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:retreatregs][:event_id])
+    current_user.engage!(@event)
+    redirect_to @user
+  end
+
   private
 
     def event_params

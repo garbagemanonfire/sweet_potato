@@ -3,15 +3,18 @@ require 'spec_helper'
 describe Event do
 
   before do
-    @event = Event.new(e_id: 2, title: "Example Event", organizer_id: 1, address_1: "2000 main street") 
+    @event = Event.new(id: 1, e_id: 2, title: "Example Event", organizer_id: 1, address_1: "2000 main street") 
   end
 
   subject { @event }
 
+  it { should respond_to(:retreatregs) }
   it { should respond_to(:e_id) }
   it { should respond_to(:title) }
   it { should respond_to(:organizer_id) }
   it { should respond_to(:address_1) }
+  it { should respond_to(:reverse_retreatregs) }
+  it { should respond_to(:users) }
 
   it { should be_valid }
 
@@ -61,6 +64,22 @@ describe Event do
         @event.address_1 = valid_address
         expect(@event).to be_valid
       end
+    end
+  end
+
+  describe "engaging" do
+    let(:user) { FactoryGirl.create(:user) }
+
+    before do
+      @user.save
+      @user.engage!(event)
+    end
+
+    # its(:users) { should include(user) }
+
+    describe "and disengaging" do
+      before { @user.disengage!(event) }
+      # its(:users) { should_not include(user) }
     end
   end
 

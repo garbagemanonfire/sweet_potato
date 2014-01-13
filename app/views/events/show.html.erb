@@ -1,31 +1,83 @@
 <% provide(:title, @event.title) %>
-<h1><%= @event.title %><h1> 
-<h2><%= @event.address_1 %></h2>
+<h2><%= @event.title %></h2> 
 
+<%= form_for(@event) do |f| %>
 <div class="row-fluid">
   <div class="span6">
-    <h4><%= @event.title %></h4>
-    <h4><%= @event.address_1 %></h4>
-    <h4><%= @event.address_2 %></h4>
-    <h4><%= @event.state %></h4>
-    <h4><%= @event.zip_code %></h4>
-    <h4><%= @event.e_id %></h4>
-    <h4><%= @event.organizer_id %></h4>
-    <h4><%= @event.venue %></h4>
-    <h4><%= @event.restrictions %></h4>
-    <h4><%= @event.tradition %></h4>
-  </div>
-  <div class="span6">
-    <h4><%= @event.description%></h4>
-    <h4><%= @event.preparations%></h4>
-    <h4><%= @event.instructions %></h4>
-    <h4><%= @event.code_conduct %></h4>
-    <h4><%= @event.comments %></h4>
-    <h4><%= @event.capacity %></h4>
-    <h4><%= @event.start_date %></h4>
-    <h4><%= @event.end_date %></h4>
-  </div>
+    <%= render 'shared/error_messages' %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, :disabled => true %>
+
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date, :disabled => true %>
+
+      <%= f.label :end_date %>
+      <%= f.date_field :end_date, :disabled => true %>
+
+      <%= f.label :capacity %>
+      <%= f.text_field :capacity, :disabled => true %>
+
+      <%= f.label :venue %>
+      <%= f.text_field :venue, :disabled => true %>
+
+      <%= f.label :Address %>
+      <%= f.text_field :address_1, :disabled => true %>
+
+      <%= f.label :City %>
+      <%= f.text_field :address_2, :disabled => true %>
+
+      <%= f.label :state %>
+      <%= f.text_field :state, :disabled => true%>
+
+      <%= f.label :zip_code %>
+      <%= f.text_field :zip_code, :disabled => true %>
+
+      <%= f.label :e_id %>
+      <%= f.text_field :e_id, :disabled => true %>
+
+      <%= f.label :organizer_id %>
+      <%= f.text_field :organizer_id, :disabled => true %>
+
+      <%= f.label :restrictions %>
+      <%= f.text_field :restrictions, :disabled => true %>
+
+      <%= f.label :tradition %>
+      <%= f.text_field :tradition, :disabled => true %>
+
+   </div>
+   <div class="span6">
+      <%= f.label :description %>
+      <%= f.text_area :description, size: "60x5", :disabled => true%>
+
+      <%= f.label :preparations %>
+      <%= f.text_area :preparations, size: "60x5", :disabled => true%>
+
+      <%= f.label :instructions %>
+      <%= f.text_area :instructions, size: "60x5", :disabled => true %>
+
+      <%= f.label :code_conduct %>
+      <%= f.text_area :code_conduct, size: "60x5", :disabled => true %>
+
+      <%= f.label :comments %>
+      <%= f.text_area :comments, size: "60x6", :disabled => true %>
+
+   <% if user_signed_in? %>
+            <%= render 'engage_form' %>
+        <% else %>
+            <div class="span5">
+                <%= link_to "Sign up", new_user_registration_path,
+                                  class: "btn btn-primary btn-large btn-block" %>
+                <h5> Sign up/Login to engage.</h5>
+            </div>
+   <% end %>
+   </div>
 </div>
+
+<% end %>
+
+
+
 
 
 

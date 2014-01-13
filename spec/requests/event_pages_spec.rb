@@ -14,7 +14,15 @@ describe "Event pages" do
 
   describe "Organize page" do
 
-    before { visit organize_path }
+    let(:user) { FactoryGirl.create(:user) }
+    
+    before do
+      visit '/users/sign_in'
+      fill_in "user_email", :with => user.email
+      fill_in "user_password", :with => user.password
+      click_button "Sign in"
+      visit organize_path
+    end
 
     it { should have_content('Organize') }
     it { should have_title(full_title('Organize')) }
@@ -23,16 +31,16 @@ describe "Event pages" do
 
     describe "with invalid information" do
       it "should not create a retreat" do
-        expect { click_button submit }.not_to change(Event, :count)
+        expect { click_button "Create A Retreat" }.not_to change(Event, :count)
       end
     end
 
     describe "with valid information" do
       before do
-        fill_in "Title",        with: "Example Event"
-        fill_in "event_address_1",    with: "11 Park Ave."
-        fill_in "E",            with: "67489376"
-        fill_in "Organizer",    with: "23"
+        fill_in "Title",        with: "Example 1"
+        fill_in "event_address_1",    with: "10 Park Place"
+        fill_in "E",            with: 823095
+        fill_in "Organizer",    with: 223
       end
 
       it "should create a event" do
