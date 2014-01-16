@@ -78,7 +78,7 @@ describe Event do
     its(:users) { should include(user) }
 
     describe "and disengaging" do
-      before { user.disengage!(event) }
+      before { user.disengage!(@event) }
       its(:users) { should_not include(user) }
     end
   end

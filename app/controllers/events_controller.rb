@@ -22,19 +22,33 @@ class EventsController < ApplicationController
        flash[:success] = "Your retreat has been added!"
       redirect_to @event
     else
-      render 'new' #should be edit?
+      render 'new' 
     end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
   end
 
   def update
     @event = Event.find(params[:id])
-    current_user.engage!(@event)
-    redirect_to @event
+
+    if @event.update_attributes(event_params)
+      flash[:success] = "Your retreat has been edited!"
+      redirect_to @event
+    else
+      render 'edit'
+    end
+    
+    # current_user.engage!(@event)
+    # flash[:success] = "You have engaged with the retreat!"
+    # redirect_to @event
   end
 
   def destroy
     @event = Event.find(params[:id])
     current_user.disengage!(@event)
+    flash[:success] = "You have disengaged with the retreat!"
     redirect_to @event
   end
 
