@@ -40,4 +40,8 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include Capybara::DSL
+
+  config.filter_run :focus => true
+  config.run_all_when_everything_filtered = true
 end
+
