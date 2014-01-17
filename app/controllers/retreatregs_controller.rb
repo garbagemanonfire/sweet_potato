@@ -15,7 +15,7 @@ class RetreatregsController < ApplicationController
   end
 
   def destroy
-    @event = Retreareg.find(params[:id])
+    @event = Retreatreg.find(params[:id]).event
     current_user.disengage!(@event)
     redirect_to @event
   end
