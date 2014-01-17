@@ -14,7 +14,8 @@ SpApp::Application.routes.draw do
     end
   end
 
-  resources :retreatregs, only: [:create, :destroy]
+  resources :retreatregs, only: [:create, :destroy, :update]
+  
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/organize',  to: 'events#new',         via: 'get'

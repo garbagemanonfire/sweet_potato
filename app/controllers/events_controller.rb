@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
-    if @event.update_attributes(event_params)
+    if @event.update_attributes(params[:id])
       flash[:success] = "Your retreat has been edited!"
       redirect_to @event
     else

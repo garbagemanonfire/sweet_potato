@@ -63,7 +63,7 @@
       <%= f.text_area :comments, size: "60x6", :disabled => true %>
 
    <% if user_signed_in? %>
-            <%= render 'engage_form' %>
+            <%= render 'retreatregs/engage_form' %>
         <% else %>
             <div class="span5">
                 <%= link_to "Login", new_user_session_path,

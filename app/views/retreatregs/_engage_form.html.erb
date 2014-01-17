@@ -1,7 +1,7 @@
 <div id="follow_form">
   <% if current_user.engaging?(@event) %>
-    <%= render 'disengage' %>
+    <%= render 'retreatregs/disengage' %>
   <% else %>
-    <%= render 'engage' %>
+    <%= render 'retreatregs/engage' %>
   <% end %>
 </div>
