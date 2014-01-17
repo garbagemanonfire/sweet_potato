@@ -66,21 +66,4 @@ describe Event do
       end
     end
   end
-
-  describe "engaging" do
-    let(:user) { FactoryGirl.create(:user) }
-
-    before do
-      # user.create!
-      user.engage!(@event)
-    end
-
-    its(:users) { should include(user) }
-
-    describe "and disengaging" do
-      before { user.disengage!(@event) }
-      its(:users) { should_not include(user) }
-    end
-  end
-
 end
