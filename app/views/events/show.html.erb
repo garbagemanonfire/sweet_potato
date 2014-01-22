@@ -1,77 +1,75 @@
 <% provide(:title, @event.title) %>
 <h2><%= @event.title %></h2> 
 
-<%= form_for(@event) do |f| %>
-<div class="row-fluid">
-  <div class="span6">
-    <%= render 'shared/error_messages' %>
+<%= fields_for(@event) do |f| %>
+  <div class="row-fluid">
+    <div class="span6">
+      <%= render 'shared/error_messages' %>
 
-      <%= f.label :title %>
-      <%= f.text_field :title, :disabled => true %>
+        <%= f.label :title %>
+        <%= f.text_field :title, :disabled => true %>
 
-      <%= f.label :start_date %>
-      <%= f.date_field :start_date, :disabled => true %>
+        <%= f.label :start_date %>
+        <%= f.date_field :start_date, :disabled => true %>
 
-      <%= f.label :end_date %>
-      <%= f.date_field :end_date, :disabled => true %>
+        <%= f.label :end_date %>
+        <%= f.date_field :end_date, :disabled => true %>
 
-      <%= f.label :capacity %>
-      <%= f.text_field :capacity, :disabled => true %>
+        <%= f.label :capacity %>
+        <%= f.text_field :capacity, :disabled => true %>
 
-      <%= f.label :venue %>
-      <%= f.text_field :venue, :disabled => true %>
+        <%= f.label :venue %>
+        <%= f.text_field :venue, :disabled => true %>
 
-      <%= f.label :Address %>
-      <%= f.text_field :address_1, :disabled => true %>
+        <%= f.label :Address %>
+        <%= f.text_field :address_1, :disabled => true %>
 
-      <%= f.label :City %>
-      <%= f.text_field :address_2, :disabled => true %>
+        <%= f.label :City %>
+        <%= f.text_field :address_2, :disabled => true %>
 
-      <%= f.label :state %>
-      <%= f.text_field :state, :disabled => true%>
+        <%= f.label :state %>
+        <%= f.text_field :state, :disabled => true%>
 
-      <%= f.label :zip_code %>
-      <%= f.text_field :zip_code, :disabled => true %>
+        <%= f.label :zip_code %>
+        <%= f.text_field :zip_code, :disabled => true %>
 
-      <%= f.label :e_id %>
-      <%= f.text_field :e_id, :disabled => true %>
+        <%= f.label :e_id %>
+        <%= f.text_field :e_id, :disabled => true %>
 
-      <%= f.label :organizer_id %>
-      <%= f.text_field :organizer_id, :disabled => true %>
+        <%= f.label :organizer_id %>
+        <%= f.text_field :organizer_id, :disabled => true %>
 
-      <%= f.label :restrictions %>
-      <%= f.text_field :restrictions, :disabled => true %>
+        <%= f.label :restrictions %>
+        <%= f.text_field :restrictions, :disabled => true %>
 
-      <%= f.label :tradition %>
-      <%= f.text_field :tradition, :disabled => true %>
+        <%= f.label :tradition %>
+        <%= f.text_field :tradition, :disabled => true %>
 
-   </div>
-   <div class="span6">
-      <%= f.label :description %>
-      <%= f.text_area :description, size: "60x5", :disabled => true%>
+     </div>
+     <div class="span6">
+        <%= f.label :description %>
+        <%= f.text_area :description, size: "60x5", :disabled => true%>
 
-      <%= f.label :preparations %>
-      <%= f.text_area :preparations, size: "60x5", :disabled => true%>
+        <%= f.label :preparations %>
+        <%= f.text_area :preparations, size: "60x5", :disabled => true%>
 
-      <%= f.label :instructions %>
-      <%= f.text_area :instructions, size: "60x5", :disabled => true %>
+        <%= f.label :instructions %>
+        <%= f.text_area :instructions, size: "60x5", :disabled => true %>
 
-      <%= f.label :code_conduct %>
-      <%= f.text_area :code_conduct, size: "60x5", :disabled => true %>
+        <%= f.label :code_conduct %>
+        <%= f.text_area :code_conduct, size: "60x5", :disabled => true %>
 
-      <%= f.label :comments %>
-      <%= f.text_area :comments, size: "60x6", :disabled => true %>
+        <%= f.label :comments %>
+        <%= f.text_area :comments, size: "60x6", :disabled => true %>
 
-   <% if user_signed_in? %>
-            <%= render 'retreatregs/engage_form' %>
-        <% else %>
-            <div class="span5">
-                <%= link_to "Login", new_user_session_path,
-                                  class: "btn btn-primary btn-large btn-block" %>
-                <h5> Login to engage.</h5>
-            </div>
-   <% end %>
-   </div>
-</div>
-
+       <% if user_signed_in? %>
+         <%= render 'retreatregs/engage_form' %>
+       <% else %>
+         <div class="span5">
+           <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-large btn-block" %>
+           <h5> Login to engage.</h5>
+         </div>
+       <% end %>
+     </div>
+  </div>
 <% end %>
