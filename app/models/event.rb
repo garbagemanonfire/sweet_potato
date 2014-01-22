@@ -1,8 +1,7 @@
 class Event < ActiveRecord::Base
     # has_many :retreatregs, foreign_key: "user_id", dependent: :destroy
-    has_many :retreatregs, dependent: :destroy
-    has_many :reverse_retreatregs, foreign_key: "event_id",
-                                   class_name:  "retreareg",
+    has_many :retreatregs, foreign_key: "event_id",
+                                   class_name:  "Retreatreg",
                                    dependent:   :destroy
     has_many :users, through: :reverse_retreatregs, source: :user
 
