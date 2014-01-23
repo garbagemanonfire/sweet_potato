@@ -13,7 +13,7 @@ describe Event do
   it { should respond_to(:title) }
   it { should respond_to(:organizer_id) }
   it { should respond_to(:address_1) }
-  it { should respond_to(:reverse_retreatregs) }
+  # it { should respond_to(:reverse_retreatregs) }
   it { should respond_to(:users) }
 
   it { should be_valid }
@@ -64,22 +64,6 @@ describe Event do
         @event.address_1 = valid_address
         expect(@event).to be_valid
       end
-    end
-  end
-
-  describe "engaging" do
-    let(:user) { FactoryGirl.create(:user) }
-
-    before do
-      # user.create!
-      user.engage!(@event)
-    end
-
-    its(:users) { should include(user) }
-
-    describe "and disengaging" do
-      before { user.disengage!(@event) }
-      its(:users) { should_not include(user) }
     end
   end
 

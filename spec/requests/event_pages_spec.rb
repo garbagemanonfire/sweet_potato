@@ -118,7 +118,7 @@ describe "Event pages" do
         it "should increment the users events count" do
           expect do
             click_button "Disengage"
-          end.to change(user.events, :count, :count).by(-1)
+          end.to change(user.events, :count).by(-1)
         end
 
         describe "toggling the button" do
