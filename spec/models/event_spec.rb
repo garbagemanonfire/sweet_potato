@@ -13,7 +13,6 @@ describe Event do
   it { should respond_to(:title) }
   it { should respond_to(:organizer_id) }
   it { should respond_to(:address_1) }
-  # it { should respond_to(:reverse_retreatregs) }
   it { should respond_to(:users) }
 
   it { should be_valid }

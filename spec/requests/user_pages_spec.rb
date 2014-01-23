@@ -18,4 +18,31 @@ describe "User pages" do
       it { should have_title(user.email) }
   end
 
+  describe "engaging" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:event) { FactoryGirl.create(:event) }
+
+    before do
+      visit '/users/sign_in'
+      fill_in "user_email", :with => user.email
+      fill_in "user_password", :with => user.password
+      click_button "Sign in"
+      user.engage!(event) 
+    end
+
+
+    describe "engaged users" do
+      before do
+        visit engaging_user_path(user.id)
+      end
+
+      it { should have_title(full_title('Engaging')) }
+      it { should have_selector('h3', text: 'Engaging') }
+      it { should have_link(event.title, href: event_path(event)) }
+      it { should have_link(event.start_date, href: event_path(event)) }
+      it { should have_link(event.end_date, href: event_path(event)) }
+    end
+
+  end
+
 end

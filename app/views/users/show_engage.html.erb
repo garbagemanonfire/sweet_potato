@@ -1,0 +1,40 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h3><%= @user.email %></h3>
+      <span><%= link_to "view my profile", @user %></span>
+      </br>
+      <span><b>Retreats:</b> <%= @user.events.count %></span>
+    </section>
+  </aside>
+  <div class="span8">
+    <h3><%= @title + " in these Retreats" %></h3>
+    <% if @events.any? %>
+      <table class="table table-striped table-hover">
+        <tr>
+            <th>Title</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Starts</th>
+            <th>Ends</th>
+            <th>Restrictions</th>
+            <th>Capacity</th>
+            <th>Full Profile</th>
+      </tr>
+      <% @events.each do |event| %>
+      </tr>
+          <td><%= link_to event.title, event %></td>
+          <td><%= event.state %></td>
+          <td><%= event.address_2 %></td>
+          <td><%= event.start_date %></td>
+          <td><%= event.end_date %></td>
+          <td><%= event.restrictions %></td>
+          <td><%= event.capacity %></td>
+          <td><%= link_to "Click Here", event %></td>
+      </tr>
+      <% end %>
+</table>
+    <% end %>
+  </div>
+</div>
