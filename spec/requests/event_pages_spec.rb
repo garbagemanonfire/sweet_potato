@@ -39,7 +39,7 @@ describe "Event pages" do
       before do
         fill_in "Title",        with: "Example 1"
         fill_in "event_address_1",    with: "10 Park Place"
-        fill_in "E",            with: 823095
+        # fill_in "E",            with: 823095
         fill_in "Organizer",    with: 223
       end
 

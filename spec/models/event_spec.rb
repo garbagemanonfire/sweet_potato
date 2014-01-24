@@ -37,14 +37,14 @@ describe Event do
     it { should_not be_valid }
   end
 
-  describe "when event id is already taken" do
-    before do
-      event_with_same_e_id = @event.dup
-      event_with_same_e_id.save
-    end
+  # describe "when event id is already taken" do
+  #   before do
+  #     event_with_same_e_id = @event.dup
+  #     event_with_same_e_id.save
+  #   end
 
-    it { should_not be_valid }
-  end
+  #   it { should_not be_valid }
+  # end
 
   describe "when street address format is invalid" do
     it "should be invalid" do
