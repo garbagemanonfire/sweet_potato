@@ -6,20 +6,23 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.organizer_id = current_user.id
   end
 
   def index
+    @title = "Engage"
     @events = Event.order(sort_column + " " + sort_direction)
   end
 
   def show
     @event = Event.find(params[:id])
+    @organizer = User.find(@event.organizer_id).email
   end
 
   def create
     @event = Event.new(event_params)
     if @event.save
-       flash[:success] = "Your retreat has been added!"
+      flash[:success] = "Your retreat has been added!"
       redirect_to @event
     else
       render 'new' 
@@ -34,7 +37,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.update_attributes(event_params)
-      flash[:success] = "Your retreat has been edited!"
+      flash[:success] = "Your retreat has been updated!"
       redirect_to @event
     else
       render 'edit'

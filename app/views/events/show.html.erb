@@ -33,11 +33,14 @@
         <%= f.label :zip_code %>
         <%= f.text_field :zip_code, :disabled => true %>
 
-        <%= f.label :e_id %>
-        <%= f.text_field :e_id, :disabled => true %>
+<!--         <%= f.label :e_id %>
+        <%= f.text_field :e_id, :disabled => true %> -->
 
-        <%= f.label :organizer_id %>
-        <%= f.text_field :organizer_id, :disabled => true %>
+<!--         <%= f.label :organizer_id %>
+        <%= f.text_field :organizer_id, :disabled => true %>  -->
+
+        <%= f.label :organizer_id, 'Organizer Email' %>
+        <h5><%= mail_to @organizer %></h5>
 
         <%= f.label :restrictions %>
         <%= f.text_field :restrictions, :disabled => true %>
@@ -64,6 +67,7 @@
 
        <% if user_signed_in? %>
          <%= render 'retreatregs/engage_form' %>
+         <%= render 'edit_retreat' %>
        <% else %>
          <div class="span5">
            <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-large btn-block" %>

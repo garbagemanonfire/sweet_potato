@@ -40,11 +40,16 @@ describe "Event pages" do
         fill_in "Title",        with: "Example 1"
         fill_in "event_address_1",    with: "10 Park Place"
         # fill_in "E",            with: 823095
-        fill_in "Organizer",    with: 223
+        # fill_in "Organizer",    with: 222
       end
 
       it "should create an event" do
         expect { click_button submit }.to change(Event, :count).by(1)
+      end
+
+      it "should create an event with a proper organizer id" do
+        event = Event.first
+        (event.organizer_id).eql?(user.id)
       end
     end
 
