@@ -68,8 +68,10 @@
         <%= f.text_area :comments, size: "60x6", :disabled => true %>
 
        <% if user_signed_in? %>
-         <%= render 'retreatregs/engage_form' %>
-         <%= render 'edit_retreat' %>
+        <div class="pull-right">
+            <%= render 'edit_retreat' %>
+        </div>
+        <%= render 'retreatregs/engage_form' %>
        <% else %>
          <div class="span5">
            <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-large btn-block" %>
