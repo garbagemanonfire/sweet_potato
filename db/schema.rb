@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20140107222600) do
     t.datetime "updated_at"
   end
 
+  add_index "events", ["id"], name: "index_events_on_id", unique: true, using: :btree
+
   create_table "retreatregs", force: true do |t|
     t.integer  "user_id"
     t.integer  "event_id"

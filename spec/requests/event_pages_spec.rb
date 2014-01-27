@@ -5,11 +5,21 @@ describe "Event pages" do
   subject { page }
 
   describe "Retreat page" do
+    let(:user) { FactoryGirl.create(:user) }
     let(:event) { FactoryGirl.create(:event) }
-    before { visit event_path(event) }
+
+    before do
+      visit '/users/sign_in'
+      fill_in "user_email", :with => user.email
+      fill_in "user_password", :with => user.password
+      click_button "Sign in"
+      visit event_path(event) 
+    end
 
     it { should have_content(event.title) }
     it { should have_title(event.title) }
+    it { should have_content(user.email) }
+
   end
 
   describe "Organize page" do
@@ -39,17 +49,22 @@ describe "Event pages" do
       before do
         fill_in "Title",        with: "Example 1"
         fill_in "event_address_1",    with: "10 Park Place"
-        # fill_in "E",            with: 823095
-        # fill_in "Organizer",    with: 222
       end
 
       it "should create an event" do
         expect { click_button submit }.to change(Event, :count).by(1)
       end
+    end
+
+    describe "with valid organizer id information" do
+      before do
+        fill_in "Title",        with: "Example 3"
+        fill_in "event_address_1",    with: "14 Park Place"
+        click_button submit
+      end
 
       it "should create an event with a proper organizer id" do
-        event = Event.first
-        (event.organizer_id).eql?(user.id)
+        (Event.last.organizer_id).eql?(user.id)
       end
     end
 

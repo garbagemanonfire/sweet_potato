@@ -39,6 +39,8 @@
 <!--         <%= f.label :organizer_id %>
         <%= f.text_field :organizer_id, :disabled => true %>  -->
 
+        <%= f.hidden_field :organizer_id %>
+
         <%= f.label :organizer_id, 'Organizer Email' %>
         <h5><%= mail_to @organizer %></h5>
 
