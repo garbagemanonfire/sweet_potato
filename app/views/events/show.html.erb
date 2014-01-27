@@ -1,7 +1,7 @@
 <% provide(:title, @event.title) %>
 <h2><%= @event.title %></h2> 
 
-<%= fields_for(@event) do |f| %>
+<%= simple_fields_for(@event) do |f| %>
   <div class="row-fluid">
     <div class="span6">
       <%= render 'shared/error_messages' %>
