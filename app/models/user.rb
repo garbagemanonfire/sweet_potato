@@ -1,3 +1,4 @@
+# Model for users, contaings methods for dis/engaging in a reatret
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

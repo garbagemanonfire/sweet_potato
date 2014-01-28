@@ -1,3 +1,4 @@
+# Static pages in the house!
 class StaticPagesController < ApplicationController
   def home
   end

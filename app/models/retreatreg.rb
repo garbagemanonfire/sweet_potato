@@ -1,3 +1,4 @@
+# Model that contains relationship between users and events
 class Retreatreg < ActiveRecord::Base
   belongs_to :user
   belongs_to :event

@@ -1,19 +1,19 @@
 require 'spec_helper'
 
-describe "Event pages" do
+describe 'Event pages' do
 
   subject { page }
 
-  describe "Retreat page" do
+  describe 'Retreat page' do
     let(:user) { FactoryGirl.create(:user) }
     let(:event) { FactoryGirl.create(:event) }
 
     before do
       visit '/users/sign_in'
-      fill_in "user_email", :with => user.email
-      fill_in "user_password", :with => user.password
-      click_button "Sign in"
-      visit event_path(event) 
+      fill_in 'user_email', with: user.email
+      fill_in 'user_password', with: user.password
+      click_button 'Sign in'
+      visit event_path(event)
     end
 
     it { should have_content(event.title) }
@@ -22,53 +22,53 @@ describe "Event pages" do
 
   end
 
-  describe "Organize page" do
+  describe 'Organize page' do
 
     let(:user) { FactoryGirl.create(:user) }
-    
+
     before do
       visit '/users/sign_in'
-      fill_in "user_email", :with => user.email
-      fill_in "user_password", :with => user.password
-      click_button "Sign in"
+      fill_in 'user_email', with: user.email
+      fill_in 'user_password', with: user.password
+      click_button 'Sign in'
       visit organize_path
     end
 
     it { should have_content('Organize') }
     it { should have_title(full_title('Organize')) }
 
-    let(:submit) { "Create A Retreat" }
+    let(:submit) { 'Create A Retreat' }
 
-    describe "with invalid information" do
-      it "should not create a retreat" do
-        expect { click_button "Create A Retreat" }.not_to change(Event, :count)
+    describe 'with invalid information' do
+      it 'should not create a retreat' do
+        expect { click_button 'Create A Retreat' }.not_to change(Event, :count)
       end
     end
 
-    describe "with valid information" do
+    describe 'with valid information' do
       before do
-        fill_in "Title",        with: "Example 1"
-        fill_in "event_address_1",    with: "10 Park Place"
+        fill_in 'Title', with: 'Example 1'
+        fill_in 'event_address_1', with: '10 Park Place'
       end
 
-      it "should create an event" do
+      it 'should create an event' do
         expect { click_button submit }.to change(Event, :count).by(1)
       end
     end
 
-    describe "with valid organizer id information" do
+    describe 'with valid organizer id information' do
       before do
-        fill_in "Title",        with: "Example 3"
-        fill_in "event_address_1",    with: "14 Park Place"
+        fill_in 'Title', with: 'Example 3'
+        fill_in 'event_address_1',    with: '14 Park Place'
         click_button submit
       end
 
-      it "should create an event with a proper organizer id" do
+      it 'should create an event with a proper organizer id' do
         (Event.last.organizer_id).eql?(user.id)
       end
     end
 
-    describe "edit event" do
+    describe 'edit event' do
 
       let(:event) { FactoryGirl.create(:event) }
 
@@ -76,18 +76,18 @@ describe "Event pages" do
         visit edit_event_path(event)
       end
 
-      describe "page" do
-        it { should have_content("Update Your Retreat") }
-        it { should have_title("Edit Retreat") }
+      describe 'page' do
+        it { should have_content('Update Your Retreat') }
+        it { should have_title('Edit Retreat') }
       end
 
-      describe "should update an event" do
-        let(:new_title)  { "Example 2" }
-        let(:new_event_address_1) { "11 Park Place" }
+      describe 'should update an event' do
+        let(:new_title)  { 'Example 2' }
+        let(:new_event_address_1) { '11 Park Place' }
 
         before do
-          fill_in "Title",              with: new_title
-          fill_in "event_address_1",    with: new_event_address_1
+          fill_in 'Title',              with: new_title
+          fill_in 'event_address_1',    with: new_event_address_1
           click_button 'Save changes'
         end
 
@@ -98,54 +98,79 @@ describe "Event pages" do
       end
     end
 
-    describe "engage/disengage buttons" do
+    describe 'engage/disengage buttons' do
       let(:event) { FactoryGirl.create(:event) }
       # before { sign_in user }
 
-      describe "engaging a retreat" do
+      describe 'engaging a retreat' do
         before { visit event_path(event) }
 
-        it "should increment the engaged users count" do
+        it 'should increment the engaged users count' do
           expect do
-            click_button "Engage"
+            click_button 'Engage'
           end.to change(event.users, :count).by(1)
         end
 
-        it "should increment the users events count" do
+        it 'should increment the users events count' do
           expect do
-            click_button "Engage"
+            click_button 'Engage'
           end.to change(user.events, :count).by(1)
         end
 
-        describe "toggling the button" do
-          before { click_button "Engage" }
+        describe 'toggling the button' do
+          before { click_button 'Engage' }
           it { should have_xpath("//input[@value='Disengage']") }
         end
       end
 
-      describe "disengageing an event" do
+      describe 'disengageing an event' do
         before do
           user.engage!(event)
           visit event_path(event)
         end
 
-        it "should decrement the engaged users count" do
+        it 'should decrement the engaged users count' do
           expect do
-            click_button "Disengage"
+            click_button 'Disengage'
           end.to change(event.users, :count).by(-1)
         end
 
-        it "should increment the users events count" do
+        it 'should increment the users events count' do
           expect do
-            click_button "Disengage"
+            click_button 'Disengage'
           end.to change(user.events, :count).by(-1)
         end
 
-        describe "toggling the button" do
-          before { click_button "Disengage" }
+        describe 'toggling the button' do
+          before { click_button 'Disengage' }
           it { should have_xpath("//input[@value='Engage']") }
         end
       end
+    end
+  end
+
+  describe 'with edit button for organizer' do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:event) { FactoryGirl.create(:event) }
+
+    describe 'organizer should see edit button' do
+      before do
+        visit '/users/sign_in'
+        fill_in 'user_email', with: user.email
+        fill_in 'user_password', with: user.password
+        click_button 'Sign in'
+        visit event_path(event)
+      end
+
+      it { should have_button('Edit') }
+    end
+
+    describe 'vistor should not see edit button' do
+      before do
+        visit event_path(event)
+      end
+
+      it { should_not have_button('Edit') }
     end
   end
 end

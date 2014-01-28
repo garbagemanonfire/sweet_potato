@@ -3,8 +3,8 @@ require 'spec_helper'
 describe User do
 
   before do
-    @user = User.create!(email: "user@example.com", password: "password",
-                        password_confirmation: "password")
+    @user = User.create!(email: 'user@example.com', password: 'password',
+                         password_confirmation: 'password')
   end
 
   subject { @user }
@@ -15,7 +15,7 @@ describe User do
   it { should respond_to(:engage!) }
   it { should respond_to(:disengage!) }
 
-  describe "engaging" do
+  describe 'engaging' do
 
     let(:event) { FactoryGirl.create(:event) }
 
@@ -27,15 +27,15 @@ describe User do
     it { should be_engaging(event) }
     its(:events) { should include(event) }
 
-    describe "and disengaging" do
-        before { @user.disengage!(event) }
+    describe 'and disengaging' do
+      before { @user.disengage!(event) }
 
-        it { should_not be_engaging(event) }
-        its(:events) { should_not include(event) }
+      it { should_not be_engaging(event) }
+      its(:events) { should_not include(event) }
     end
   end
 
-  describe "engaging" do
+  describe 'engaging' do
     let(:event) { FactoryGirl.create(:event) }
 
     before do
@@ -45,7 +45,7 @@ describe User do
 
     its(:events) { should include(event) }
 
-    describe "and disengaging" do
+    describe 'and disengaging' do
       before { @user.disengage!(event) }
       its(:events) { should_not include(event) }
     end

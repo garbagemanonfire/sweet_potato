@@ -1,5 +1,5 @@
-class EventsController < ApplicationController 
-  #Controller for the retreat events
+# Controller for the retreat events
+class EventsController < ApplicationController
   before_filter :set_return_path, only: [:new, :create]
   before_filter :authenticate_user!, only: [:new, :create]
   helper_method :sort_column, :sort_direction
@@ -10,8 +10,8 @@ class EventsController < ApplicationController
   end
 
   def index
-    @title = "Engage"
-    @events = Event.order(sort_column + " " + sort_direction)
+    @title = 'Engage'
+    @events = Event.order(sort_column + ' ' + sort_direction)
   end
 
   def show
@@ -22,10 +22,10 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      flash[:success] = "Your retreat has been added!"
+      flash[:success] = 'Your retreat has been added!'
       redirect_to @event
     else
-      render 'new' 
+      render 'new'
     end
   end
 
@@ -37,40 +37,40 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.update_attributes(event_params)
-      flash[:success] = "Your retreat has been updated!"
+      flash[:success] = 'Your retreat has been updated!'
       redirect_to @event
     else
       render 'edit'
     end
-    
+
     # current_user.engage!(@event)
-    # flash[:success] = "You have engaged with the retreat!"
+    # flash[:success] = 'You have engaged with the retreat!'
     # redirect_to @event
   end
 
   def destroy
     @event = Event.find(params[:id])
     current_user.disengage!(@event)
-    flash[:success] = "You have disengaged with the retreat!"
+    flash[:success] = 'You have disengaged with the retreat!'
     redirect_to @event
   end
 
   private
 
-    def event_params
-      params.require(:event).permit(:title, :address_1, :address_2, :state, :zip_code, :e_id, :organizer_id, 
-                                    :venue, :restrictions, :tradition, :description, :preparations, :instructions,
-                                    :code_conduct, :comments, :capacity, :start_date, :end_date)
-    end
+  def event_params
+    params.require(:event).permit(:title, :address_1, :address_2, :state,
+                                  :zip_code, :e_id, :organizer_id,
+                                  :venue, :restrictions, :tradition,
+                                  :description, :preparations, :instructions,
+                                  :code_conduct, :comments, :capacity,
+                                  :start_date, :end_date)
+  end
 
-    def sort_column
-      Event.column_names.include?(params[:sort]) ? params[:sort] : "title"
-    end
-    
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
+  def sort_column
+    Event.column_names.include?(params[:sort]) ? params[:sort] : 'title'
+  end
 
-
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+  end
 end
-
