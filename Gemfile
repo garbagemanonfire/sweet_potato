@@ -10,7 +10,6 @@ gem 'faker', '1.1.2'
 gem 'devise', '3.2.2'
 # gem 'eventbrite-client'
 gem 'simple_form'
-gem 'pg'
 
 group :development, :test do
   gem 'pg'
