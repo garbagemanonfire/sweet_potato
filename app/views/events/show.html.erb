@@ -68,10 +68,14 @@
         <%= f.text_area :comments, size: "60x6", :disabled => true %>
 
        <% if user_signed_in? %>
-        <div class="pull-right">
-            <%= render 'edit_retreat' %>
-        </div>
-        <%= render 'retreatregs/engage_form' %>
+         <div class="pull-right">
+          <% if @event.organizer == current_user %>
+            <div class="span1">
+              <%= link_to "Edit", edit_event_path, class: "btn btn-large btn-primary" %>
+            </div>
+          <% end %>
+         </div>
+         <%= render 'retreatregs/engage_form' %>
        <% else %>
          <div class="span5">
            <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-large btn-block" %>

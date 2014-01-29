@@ -151,18 +151,21 @@ describe 'Event pages' do
 
   describe 'with edit button for organizer' do
     let(:user) { FactoryGirl.create(:user) }
-    let(:event) { FactoryGirl.create(:event) }
+    let(:event) { FactoryGirl.create(:event, organizer: user, title: "BBQ") }
 
     describe 'organizer should see edit button' do
       before do
-        visit '/users/sign_in'
+        event
+
+        visit '/'
+        click_link "Login"
         fill_in 'user_email', with: user.email
         fill_in 'user_password', with: user.password
         click_button 'Sign in'
-        visit event_path(event)
+        click_link "BBQ"
       end
 
-      it { should have_button('Edit') }
+      it { subject.should have_button('Edit') }
     end
 
     describe 'vistor should not see edit button' do

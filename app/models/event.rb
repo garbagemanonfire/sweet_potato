@@ -2,6 +2,7 @@
 class Event < ActiveRecord::Base
   has_many :retreatregs, dependent: :destroy
   has_many :users, through: :retreatregs
+  belongs_to :organizer, class_name: "User"
 
   validates :title, presence: true, length: { maximum: 100 }
   validates :organizer_id, presence: true
