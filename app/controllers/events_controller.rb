@@ -2,7 +2,6 @@
 class EventsController < ApplicationController
   before_filter :set_return_path, only: [:new, :create]
   before_filter :authenticate_user!, only: [:new, :create]
-  helper_method :sort_column, :sort_direction
 
   def new
     @event = Event.new
@@ -66,11 +65,9 @@ class EventsController < ApplicationController
                                   :start_date, :end_date)
   end
 
-  def sort_column
-    Event.column_names.include?(params[:sort]) ? params[:sort] : 'title'
-  end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+  def set_return_path
+    unless devise_controller? || request.xhr? || !request.get?
+      session[:user_return_to] = request.url
+    end
   end
 end
