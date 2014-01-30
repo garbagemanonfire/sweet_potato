@@ -15,4 +15,8 @@ class RetreatregsController < ApplicationController
     flash[:success] = 'You have disengaged from the retreat!'
     redirect_to @event
   end
+
+  def show
+    @event = Retreatreg.find(params[:id]).event.users
+  end
 end
