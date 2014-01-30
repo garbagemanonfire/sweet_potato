@@ -159,6 +159,7 @@ describe 'Event pages' do
         event
         visit '/'
         click_on "Login"
+        user
         fill_in 'user_email', with: user.email
         fill_in 'user_password', with: user.password
         click_on 'Sign in'

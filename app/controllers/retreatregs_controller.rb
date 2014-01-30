@@ -16,7 +16,5 @@ class RetreatregsController < ApplicationController
     redirect_to @event
   end
 
-  def show
-    @event = Retreatreg.find(params[:id]).event.users
-  end
+
 end

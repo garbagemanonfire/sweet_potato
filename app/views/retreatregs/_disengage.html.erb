@@ -1,4 +1,4 @@
-<%= form_for(current_user.retreatregs.find_by(event: @event),
+<%= form_for(current_user.retreatregs.find_by(event: @event ||= event),
              html: { method: :delete }) do |f| %>
   <%= f.submit "Disengage", class: "btn btn-large" %>
 <% end %>

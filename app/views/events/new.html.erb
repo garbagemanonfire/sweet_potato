@@ -1,67 +1,68 @@
 <% provide(:title, 'Organize') %>
-<h1>Organize A Retreat</h1>
+<h2>Organize A Retreat</h2>
 
-<%= simple_form_for(@event) do |f| %>
-<div class="row-fluid">
-  <div class="span6">
-    <%= render 'shared/error_messages' %>
+<%= form_for(@event) do |f| %>
+   <div class="row-fluid">
+     <div class="span6">
+       <%= render 'shared/error_messages' %>
 
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+         <%= f.label :title %>
+         <%= f.text_field :title %>
 
-      <%= f.label :start_date %>
-      <%= f.date_field :start_date %>
+         <%= f.label :start_date %>
+         <%= f.date_field :start_date %>
 
-      <%= f.label :end_date %>
-      <%= f.date_field :end_date %>
+         <%= f.label :end_date %>
+         <%= f.date_field :end_date %>
 
-      <%= f.label :capacity %>
-      <%= f.text_field :capacity %>
+         <%= f.label :capacity %>
+         <%= f.text_field :capacity %>
 
-      <%= f.label :venue %>
-      <%= f.text_field :venue %>
+         <%= f.label :venue %>
+         <%= f.text_field :venue %>
 
-      <%= f.label :Address %>
-      <%= f.text_field :address_1 %>
+         <%= f.label :Address %>
+         <%= f.text_field :address_1 %>
 
-      <%= f.label :City %>
-      <%= f.text_field :address_2 %>
+         <%= f.label :City %>
+         <%= f.text_field :address_2 %>
 
-      <%= f.label :state %>
-      <%= f.text_field :state %>
+         <%= f.label :state %>
+         <%= f.text_field :state %>
 
-      <%= f.label :zip_code %>
-      <%= f.text_field :zip_code %>
+         <%= f.label :zip_code %>
+         <%= f.text_field :zip_code %>
 
-<!--       <%= f.label :e_id %>
-      <%= f.text_field :e_id %> -->
+   <!--       <%= f.label :e_id %>
+         <%= f.text_field :e_id %> -->
 
-      <%= f.hidden_field :organizer_id %>
+         <%= f.hidden_field :organizer_id %>
 
-      <%= f.label :restrictions %>
-      <%= f.text_field :restrictions %>
+         <%= f.label :restrictions %>
+         <%= f.text_field :restrictions %>
 
-      <%= f.label :tradition %>
-      <%= f.text_field :tradition %>
+         <%= f.label :tradition %>
+         <%= f.text_field :tradition %>
 
+      </div>
+      <div class="span6">
+
+         <%= f.label :description %>
+         <%= f.text_area :description, size: "60x5"%>
+
+         <%= f.label :preparations %>
+         <%= f.text_area :preparations, size: "60x5"%>
+
+         <%= f.label :instructions %>
+         <%= f.text_area :instructions, size: "60x5" %>
+
+         <%= f.label :code_conduct %>
+         <%= f.text_area :code_conduct, size: "60x5" %>
+
+         <%= f.label :comments %>
+         <%= f.text_area :comments, size: "60x6" %>
+
+         <%= f.submit "Create A Retreat", class: "btn btn-large btn-primary pull-right" %>
+      </div>
    </div>
-   <div class="span6">
-      <%= f.label :description %>
-      <%= f.text_area :description, size: "60x5"%>
-
-      <%= f.label :preparations %>
-      <%= f.text_area :preparations, size: "60x5"%>
-
-      <%= f.label :instructions %>
-      <%= f.text_area :instructions, size: "60x5" %>
-
-      <%= f.label :code_conduct %>
-      <%= f.text_area :code_conduct, size: "60x5" %>
-
-      <%= f.label :comments %>
-      <%= f.text_area :comments, size: "60x6" %>
-
-      <%= f.submit "Create A Retreat", class: "btn btn-large btn-primary pull-right" %>
-   </div>
-</div>
 <% end %>
