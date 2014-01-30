@@ -1,6 +1,6 @@
 # Controller for the retreat events
 class EventsController < ApplicationController
-  before_filter :set_return_path, only: [:new, :create]
+  before_filter :set_return_path, only: [:new, :show, :create]
   before_filter :authenticate_user!, only: [:new, :create]
   helper_method :sort_column, :sort_direction
 
@@ -72,5 +72,11 @@ class EventsController < ApplicationController
 
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+  end
+
+  def set_return_path
+    unless devise_controller? || request.xhr? || !request.get?
+      session[:user_return_to] = request.url
+    end
   end
 end
