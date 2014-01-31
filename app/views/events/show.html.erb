@@ -16,7 +16,7 @@
         <%= f.date_field :end_date, :disabled => true %>
 
         <%= f.label :capacity %>
-        <%= f.text_field :capacity, :disabled => true %>
+        <h5>Attendees/Capacity: <%= @event.users.count %>/<%= @event.capacity %></h5>
 
         <%= f.label :venue %>
         <%= f.text_field :venue, :disabled => true %>
