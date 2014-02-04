@@ -33,7 +33,7 @@ describe Event do
     it { should_not be_valid }
   end
 
-  # when eventbrite api is confifured turn this back on.
+  # when eventbrite api is configured turn this back on.
   # describe 'when event id is already taken' do
   #   before do
   #     event_with_same_e_id = @event.dup
