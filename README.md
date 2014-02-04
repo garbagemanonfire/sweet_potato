@@ -33,5 +33,7 @@ _Gems_:
 * Simple form
 * Rspec 
 * Capybara 
+* Sublime Text
+* Rubocop
 * and more...
 
