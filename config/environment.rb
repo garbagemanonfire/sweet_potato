@@ -13,3 +13,5 @@ ActionMailer::Base.smtp_settings = {
     :domain         => ENV['SENDGRID_DOMAIN'],
     :enable_starttls_auto => true
 }
+
+Time::DATE_FORMATS[:clean_date] = "%-m/%-d/%y"
