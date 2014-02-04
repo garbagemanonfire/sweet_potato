@@ -7,8 +7,8 @@ gem 'bootswatch-rails'
 gem 'faker', '1.1.2'
 # gem 'will_paginate'
 # gem 'bootstrap-will_paginate'
-gem 'devise', '3.2.2'
 # gem 'eventbrite-client'
+gem 'devise', '3.2.2'
 gem 'simple_form'
 
 group :development, :test do
