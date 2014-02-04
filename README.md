@@ -1,10 +1,10 @@
-=== Sweet Potato Ver 2
-
 ## Mission:
 
 Sweet Potato. Engage, Reflect, Build Community. 
 
 A simple responsive web app that assists practitioners with their meditation retreats.
+
+Project part of my capstone at [Portland Code School](http://www.portlandcodeschool.com/)
 
 Deployed to Heroku at: http://sweet-potato.herokuapp.com 
 
