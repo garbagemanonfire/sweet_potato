@@ -8,10 +8,12 @@ FactoryGirl.define do
   end
 
   factory :event do
-    id           '1'
+    id           '0'
     title        'Example Event'
     address_1    '10 Park Place'
     organizer_id  '0'
+    start_date    Date.today
+    end_date      Date.today
   end
 
 end

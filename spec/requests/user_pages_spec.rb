@@ -38,8 +38,6 @@ describe 'User pages' do
       it { should have_title(full_title('Engaging')) }
       it { should have_selector('h3', text: 'Engaging in these Retreats') }
       it { should have_link(event.title, href: event_path(event)) }
-      it { should have_link(event.start_date, href: event_path(event)) }
-      it { should have_link(event.end_date, href: event_path(event)) }
     end
 
   end

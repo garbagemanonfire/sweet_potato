@@ -11,8 +11,8 @@ describe 'Return to event after login for engagement' do
   it 'unauthenticated user tries to engage event' do
     visit "/"
 
-    click_on "Find a Retreat"
-    click_on "Soto Zen Retreat"
+    click_link "Find a Retreat"
+    click_link "Soto Zen Retreat"
 
     within("section") { click_on "Login" }
 
