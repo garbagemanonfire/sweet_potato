@@ -98,3 +98,16 @@ input {
   @extend .error;
 }
 
+/* map */
+
+.map img {
+  max-width: none !important;
+}
+
+#map {
+  margin-bottom: 1%;
+  width: 100%;
+  height: 400px;
+}
+
+
