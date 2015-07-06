@@ -1,16 +1,16 @@
-<header class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
+<header class="navigation" role="banner" >
+  <div class="navigation-wrapper">
     <div class="container">
       <%= link_to "Sweet Potato", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
+      <nav role="navigation">
+        <ul id="js-navigation-menu" class="navigation-menu show" >
           <% if user_signed_in? %>
-              <li><%= link_to "Reflect", '#' %></li> 
+              <li class="nav-link"><%= link_to "Reflect", '#' %></li>
             <% else %>
-              <li><%= link_to "Connect", new_user_registration_path, :class => 'navbar-link'  %></li>
+              <li class="nav-link"><%= link_to "Connect", new_user_registration_path, :class => 'navbar-link'  %></li>
             <% end %>
-          <li><%= link_to 'Engage', events_path, :class => 'navbar-link' %></li>
-          <li><%= link_to "Organize", organize_path, :class => 'navbar_link' %></li>
+          <li class="nav-link"><%= link_to 'Engage', events_path, :class => 'navbar-link' %></li>
+          <li class="nav-link"><%= link_to "Organize", organize_path, :class => 'navbar_link' %></li>
             <% if user_signed_in? %>
           <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">

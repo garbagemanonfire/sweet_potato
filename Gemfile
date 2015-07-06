@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.2'
-gem 'bootstrap-sass', '~> 2'
-gem 'bootswatch-rails'
+# gem 'bootstrap-sass', '~> 2'
+# gem 'bootswatch-rails'
 gem 'faker', '1.1.2'
 # gem 'will_paginate'
 # gem 'bootstrap-will_paginate'
@@ -11,6 +11,15 @@ gem 'faker', '1.1.2'
 gem 'devise', '3.2.2'
 gem 'simple_form'
 gem 'thin'
+
+# styles and structure for bourbon
+gem 'bitters'
+# sass mixins
+gem 'bourbon'
+# grid framework for bourbon
+gem 'neat'
+# patterns for bourbon
+gem 'refills'
 
 group :development, :test do
   gem 'pg'
