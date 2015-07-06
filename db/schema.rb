@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140403230850) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.integer  "e_id"
     t.string   "title"
     t.integer  "organizer_id"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140403230850) do
 
   add_index "events", ["id"], name: "index_events_on_id", unique: true, using: :btree
 
-  create_table "retreatregs", force: true do |t|
+  create_table "retreatregs", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "event_id"
     t.datetime "created_at"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140403230850) do
   add_index "retreatregs", ["user_id", "event_id"], name: "index_retreatregs_on_user_id_and_event_id", unique: true, using: :btree
   add_index "retreatregs", ["user_id"], name: "index_retreatregs_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

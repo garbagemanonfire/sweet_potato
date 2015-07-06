@@ -1,31 +1,50 @@
 <header class="navigation" role="banner" >
   <div class="navigation-wrapper">
-    <div class="container">
-      <%= link_to "Sweet Potato", root_path, id: "logo" %>
-      <nav role="navigation">
-        <ul id="js-navigation-menu" class="navigation-menu show" >
-          <% if user_signed_in? %>
-              <li class="nav-link"><%= link_to "Reflect", '#' %></li>
-            <% else %>
-              <li class="nav-link"><%= link_to "Connect", new_user_registration_path, :class => 'navbar-link'  %></li>
-            <% end %>
-          <li class="nav-link"><%= link_to 'Engage', events_path, :class => 'navbar-link' %></li>
-          <li class="nav-link"><%= link_to "Organize", organize_path, :class => 'navbar_link' %></li>
-            <% if user_signed_in? %>
-          <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li> <%= link_to 'View Your Retreats', engaging_user_path(current_user.id), :class => 'navbar-link' %></li>
-                <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-                <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-              </ul>
-            <% else %>
-            <li> <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-            <% end %></li>
-        </ul>
-      </nav>
-    </div>
+    <%= link_to "Sweet Potato", root_path, :class => "logo" %>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show" >
+        <% if user_signed_in? %>
+            <li class="nav-link">
+              <%= link_to "Reflect", '#' %>
+            </li>
+          <% else %>
+            <li class="nav-link">
+              <%= link_to "Connect", new_user_registration_path, :class => 'navbar-link' %>
+            </li>
+          <% end %>
+        <li class="nav-link">
+          <%= link_to 'Engage', events_path, :class => 'navbar-link' %>
+        </li>
+        <li class="nav-link">
+          <%= link_to "Organize", organize_path, :class => 'navbar_link' %>
+        </li>
+        <% if user_signed_in? %>
+          <li class="nav-link more">
+            <ul class="submenu">
+              <li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Account <b class="caret"></b>
+                </a>
+              </li>
+              <li>
+                <%= link_to 'View Your Retreats', engaging_user_path(current_user.id), :class => 'navbar-link' %>
+              </li>
+              <li>
+                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+              </li>
+              <li>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-link">
+            <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
   </div>
 </header>

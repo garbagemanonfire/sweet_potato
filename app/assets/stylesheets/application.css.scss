@@ -1,8 +1,11 @@
 @import
+  "lib/normalize",
   "bourbon",
   "base/grid-settings",
   "neat",
   "refills/navigation";
 
-@import "base/base";
+@import
+  "base/base",
+  "modules/header";
 
