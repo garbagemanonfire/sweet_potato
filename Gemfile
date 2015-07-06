@@ -1,19 +1,29 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.2.2'
 
-gem 'rails', '4.0.2'
-gem 'bootstrap-sass', '~> 2'
-gem 'bootswatch-rails'
+gem 'rails', '4.2.1'
+# gem 'bootstrap-sass', '~> 2'
+# gem 'bootswatch-rails'
 gem 'faker', '1.1.2'
 # gem 'will_paginate'
 # gem 'bootstrap-will_paginate'
 # gem 'eventbrite-client'
-gem 'devise', '3.2.2'
+gem 'devise'
 gem 'simple_form'
 gem 'thin'
 
+# styles and structure for bourbon
+gem 'bitters'
+# sass mixins
+gem 'bourbon'
+# grid framework for bourbon
+gem 'neat'
+# patterns for bourbon
+gem 'refills'
+# for better prefixing
+gem 'autoprefixer-rails'
+
 group :development, :test do
-  gem 'pg'
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec-its'
 end
@@ -34,12 +44,12 @@ gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'pg'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
