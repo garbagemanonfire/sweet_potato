@@ -1,0 +1,38 @@
+.logo {
+  font-weight: 600;
+  color: $sweet-potato;
+
+  &:before {
+    $size: 40px;
+
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    margin-top: $size / 4;
+    margin-bottom: $size / 4;
+    margin-right: $size / 4;
+    background-color: $sweet-potato;
+    transition: background-color 0.1s linear;
+  }
+
+  &:hover {
+    color: $purple;
+
+    &:before {
+      background-color: $purple;
+    }
+  }
+
+  header.navigation & {
+    padding-left: 0;
+  }
+}
+
+header.navigation nav {
+    @include media ($large-screen) {
+      float: right;
+    }
+}
