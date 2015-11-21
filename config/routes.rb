@@ -24,4 +24,5 @@ SpApp::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/sendgrid', to: 'static_pages#sendgrid', via: 'get'
 
+
 end
