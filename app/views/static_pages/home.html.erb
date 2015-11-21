@@ -1,42 +1,29 @@
-<div class='hero-unit'>
+<div class='cta_container'>
+  <div class='lead'>
     <h1>Sweet Potato</h1>
     <h2>Connect, Engage, Reflect</h2>
     <h3>
       Get the most out of your retreats.
     </h3>
-</div>
+  </div>
 
-<div class="stuff">
-    <div class="row">
-        <div class="span4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h3>Connect</h3>
-                    <p>Connect with the community</p>
-                    <p><%= link_to "Sign up", new_user_registration_path,
-                                  class: "btn btn-primary btn-large btn-block" %></p> 
-                </div>
-            </div>
-        </div>
-        <div class="span4">
-            <div class="thumbnail">
-              <div class="caption">
-                <h3>Engage</h3>
-                <p>Engage in retreats</p>
-                <p><%= link_to "Find a Retreat", events_path,
-                                  class: "btn btn-primary btn-large btn-block" %></p>
-              </div>
-            </div>
-        </div>
-        <div class="span4">
-            <div class="thumbnail">
-              <div class="caption">
-                <h3>Organize</h3>
-                <p>Organize a retreat</p>
-                <p><%= link_to "Organize", organize_path,
-                                  class: "btn btn-primary btn-large btn-block" %></p>
-              </div>
-            </div>
-        </div>
+  <div class='ctas'>
+    <div class='cta connect'>
+      <h3>Connect</h3>
+      <p>Connect with the community</p>
+      <p><%= link_to "Sign up", new_user_registration_path %></p>
     </div>
+
+    <div class='cta engage'>
+      <h3>Engage</h3>
+      <p>Engage in retreats</p>
+      <p><%= link_to "Find a Retreat", events_path %></p>
+    </div>
+
+    <div class='cta organize'>
+       <h3>Organize</h3>
+       <p>Organize a retreat</p>
+       <p><%= link_to "Organize", organize_path %></p>
+    </div>
+ </div>
 </div>
