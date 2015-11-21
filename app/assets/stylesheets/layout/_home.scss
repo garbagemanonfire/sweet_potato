@@ -2,6 +2,7 @@
   display: none;
 }
 
+
 .container {
   @include outer-container;
 }
@@ -9,7 +10,7 @@
 .cta_container {
   @include span-columns(10 of 16);
   @include shift(3 of 16);
-  // background-color: ;
+  background-color: rgba(red, 0.8); // makes it 80% opacity
 
   @include media($medium-screen-down) {
     @include span-columns(16 of 16);
@@ -19,6 +20,11 @@
 
 .lead {
   @include span-columns(8 of 16);
+
+  @include media($medium-screen-down) {
+    @include span-columns(16 of 16);
+  }
+
   h1 {
     font-size: 2em;
   }
@@ -43,7 +49,6 @@
   }
 
   .cta {
-
     h3 {
       font-size: 1.25em;
     }
@@ -51,7 +56,6 @@
     p {
       font-size: 1.125em;
     }
-
   }
 }
 
