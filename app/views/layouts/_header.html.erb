@@ -1,31 +1,40 @@
-<header class="navigation" role="banner" >
+<header class="navigation" role="banner">
   <div class="navigation-wrapper">
-    <div class="container">
-      <%= link_to "Sweet Potato", root_path, id: "logo" %>
-      <nav role="navigation">
-        <ul id="js-navigation-menu" class="navigation-menu show" >
-          <% if user_signed_in? %>
-              <li class="nav-link"><%= link_to "Reflect", '#' %></li>
-            <% else %>
-              <li class="nav-link"><%= link_to "Connect", new_user_registration_path, :class => 'navbar-link'  %></li>
-            <% end %>
-          <li class="nav-link"><%= link_to 'Engage', events_path, :class => 'navbar-link' %></li>
-          <li class="nav-link"><%= link_to "Organize", organize_path, :class => 'navbar_link' %></li>
-            <% if user_signed_in? %>
-          <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li> <%= link_to 'View Your Retreats', engaging_user_path(current_user.id), :class => 'navbar-link' %></li>
-                <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-                <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-              </ul>
-            <% else %>
-            <li> <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-            <% end %></li>
-        </ul>
-      </nav>
+    <a href="javascript:void(0)" class="logo">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><%= link_to 'Engage', events_path, :class => 'navbar-link' %></li>
+        <li class="nav-link"><%= link_to "Organize", organize_path, :class => 'navbar_link' %></li>
+        
+          <li class="nav-link more" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account</a>
+            <ul class="submenu">
+              <li><a href="#">View Your Retreats</a></li>
+              <li><a href="#">Edit profile</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </li>
+      </ul>
+    </nav>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <form role="search">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+          </button>
+        </form>
+      </div>
+      <% if user_signed_in? %>
+          <%= link_to "Reflect", '/', class: 'sign-up' %>
+        <% else %>
+         <%= link_to "Connect", new_user_registration_path, :class => 'sign-up'  %>
+      <% end %>
     </div>
   </div>
 </header>
+
+
